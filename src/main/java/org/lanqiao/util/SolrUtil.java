@@ -32,7 +32,7 @@ public class SolrUtil {
         HttpSolrClient solrServer = new HttpSolrClient.Builder(SOLR_URL + "articles/").withConnectionTimeout(10000).withSocketTimeout(60000).build();
         SolrQuery query = new SolrQuery();
         //下面设置solr查询参数
-        query.set("q", "article_address:"+cityName);// 参数q  查询所有
+        query.set("q", "article_local:"+cityName);// 参数q  查询所有
 
         //获取查询结果
         QueryResponse response = solrServer.query(query);

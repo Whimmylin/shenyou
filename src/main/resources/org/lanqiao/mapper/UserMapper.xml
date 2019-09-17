@@ -16,35 +16,35 @@
   </resultMap>
 
   <select id="selectUserNameByPK" parameterType="java.lang.Integer" resultType="java.lang.String">
-    select user_rickname from user
+    select user_rickname from users
     where user_id = #{userId,jdbcType=INTEGER}
   </select>
   <sql id="Base_Column_List">
-    user_id, user_rickname, user_passw, user_phone, user_name, user_sex, user_birthday, 
+    user_id, user_rickname, user_passw, user_phone, user_name, user_sex, user_birthday,
     user_address, user_picaddress, user_sign, user_img
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select 
+    select
     <include refid="Base_Column_List" />
-    from user
+    from users
     where user_id = #{userId,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from user
+    delete from users
     where user_id = #{userId,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="org.lanqiao.entity.User">
-    insert into user (user_id, user_rickname, user_passw, 
-      user_phone, user_name, user_sex, 
-      user_birthday, user_address, user_picaddress, 
+    insert into users (user_id, user_rickname, user_passw,
+      user_phone, user_name, user_sex,
+      user_birthday, user_address, user_picaddress,
       user_sign, user_img)
-    values (#{userId,jdbcType=INTEGER}, #{userRickname,jdbcType=VARCHAR}, #{userPassw,jdbcType=VARCHAR}, 
-      #{userPhone,jdbcType=VARCHAR}, #{userName,jdbcType=VARCHAR}, #{userSex,jdbcType=VARCHAR}, 
-      #{userBirthday,jdbcType=DATE}, #{userAddress,jdbcType=VARCHAR}, #{userPicaddress,jdbcType=VARCHAR}, 
+    values (#{userId,jdbcType=INTEGER}, #{userRickname,jdbcType=VARCHAR}, #{userPassw,jdbcType=VARCHAR},
+      #{userPhone,jdbcType=VARCHAR}, #{userName,jdbcType=VARCHAR}, #{userSex,jdbcType=VARCHAR},
+      #{userBirthday,jdbcType=DATE}, #{userAddress,jdbcType=VARCHAR}, #{userPicaddress,jdbcType=VARCHAR},
       #{userSign,jdbcType=VARCHAR}, #{userImg,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="org.lanqiao.entity.User">
-    insert into user
+    insert into users
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="userId != null">
         user_id,
@@ -117,7 +117,7 @@
     </trim>
   </insert>
   <update id="updateByPrimaryKeySelective" parameterType="org.lanqiao.entity.User">
-    update user
+    update users
     <set>
       <if test="userRickname != null">
         user_rickname = #{userRickname,jdbcType=VARCHAR},
@@ -153,7 +153,7 @@
     where user_id = #{userId,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="org.lanqiao.entity.User">
-    update user
+    update users
     set user_rickname = #{userRickname,jdbcType=VARCHAR},
       user_passw = #{userPassw,jdbcType=VARCHAR},
       user_phone = #{userPhone,jdbcType=VARCHAR},
