@@ -9,7 +9,7 @@
     <result column="video_hot" property="videoHot" jdbcType="VARCHAR" />
     <result column="video_title" property="videoTitle" jdbcType="VARCHAR" />
     <result column="video_url" property="videoUrl" jdbcType="VARCHAR" />
-    <result column="video_sort" property="videoSort" jdbcType="VARCHAR" />
+    <result column="video_sort" property="videoSort" jdbcType="INTEGER" />
     <result column="destination" property="destination" jdbcType="VARCHAR" />
     <result column="video_last" property="videoLast" jdbcType="VARCHAR" />
     <result column="main_id" property="mainId" jdbcType="VARCHAR" />
@@ -38,7 +38,7 @@
       video_detail)
     values (#{videoId,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{uploadTime,jdbcType=DATE}, 
       #{isOnly,jdbcType=TINYINT}, #{videoHot,jdbcType=VARCHAR}, #{videoTitle,jdbcType=VARCHAR}, 
-      #{videoUrl,jdbcType=VARCHAR}, #{videoSort,jdbcType=VARCHAR}, #{destination,jdbcType=VARCHAR}, 
+      #{videoUrl,jdbcType=VARCHAR}, #{videoSort,jdbcType=INTEGER}, #{destination,jdbcType=VARCHAR}, 
       #{videoLast,jdbcType=VARCHAR}, #{mainId,jdbcType=VARCHAR}, #{discussId,jdbcType=INTEGER}, 
       #{videoDetail,jdbcType=VARCHAR})
   </insert>
@@ -108,7 +108,7 @@
         #{videoUrl,jdbcType=VARCHAR},
       </if>
       <if test="videoSort != null" >
-        #{videoSort,jdbcType=VARCHAR},
+        #{videoSort,jdbcType=INTEGER},
       </if>
       <if test="destination != null" >
         #{destination,jdbcType=VARCHAR},
@@ -149,7 +149,7 @@
         video_url = #{videoUrl,jdbcType=VARCHAR},
       </if>
       <if test="videoSort != null" >
-        video_sort = #{videoSort,jdbcType=VARCHAR},
+        video_sort = #{videoSort,jdbcType=INTEGER},
       </if>
       <if test="destination != null" >
         destination = #{destination,jdbcType=VARCHAR},
@@ -177,7 +177,7 @@
       video_hot = #{videoHot,jdbcType=VARCHAR},
       video_title = #{videoTitle,jdbcType=VARCHAR},
       video_url = #{videoUrl,jdbcType=VARCHAR},
-      video_sort = #{videoSort,jdbcType=VARCHAR},
+      video_sort = #{videoSort,jdbcType=INTEGER},
       destination = #{destination,jdbcType=VARCHAR},
       video_last = #{videoLast,jdbcType=VARCHAR},
       main_id = #{mainId,jdbcType=VARCHAR},

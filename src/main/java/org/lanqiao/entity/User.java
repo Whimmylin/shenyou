@@ -23,6 +23,8 @@ public class User {
 
     private String userSign;
 
+    private String userImg;
+
     public Integer getUserId() {
         return userId;
     }
@@ -101,5 +103,13 @@ public class User {
 
     public void setUserSign(String userSign) {
         this.userSign = userSign == null ? null : userSign.trim();
+    }
+
+    public String getUserImg() {
+        return userImg;
+    }
+
+    public void setUserImg(String userImg) {
+        this.userImg = userImg == null ? null : userImg.trim();
     }
 }

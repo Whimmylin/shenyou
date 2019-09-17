@@ -17,7 +17,7 @@ public class Video {
 
     private String videoUrl;
 
-    private String videoSort;
+    private Integer videoSort;
 
     private String destination;
 
@@ -85,12 +85,12 @@ public class Video {
         this.videoUrl = videoUrl == null ? null : videoUrl.trim();
     }
 
-    public String getVideoSort() {
+    public Integer getVideoSort() {
         return videoSort;
     }
 
-    public void setVideoSort(String videoSort) {
-        this.videoSort = videoSort == null ? null : videoSort.trim();
+    public void setVideoSort(Integer videoSort) {
+        this.videoSort = videoSort;
     }
 
     public String getDestination() {

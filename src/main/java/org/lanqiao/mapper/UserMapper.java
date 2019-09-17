@@ -1,9 +1,7 @@
 package org.lanqiao.mapper;
 
 import org.lanqiao.entity.User;
-import org.springframework.stereotype.Repository;
 
-@Repository
 public interface UserMapper {
     int deleteByPrimaryKey(Integer userId);
 
