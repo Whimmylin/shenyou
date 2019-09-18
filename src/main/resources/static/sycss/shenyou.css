@@ -2,6 +2,44 @@
 a {
     font-size: 14px;
 }
+
+.dropbtn {
+    background-color: #222;
+    color: #fdd000;
+    padding: 5px;
+    font-size: 16px;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 80px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1001;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 6px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color:#222;
+}
 #mynav{
     background-color: #1F1F1F;
     height: 50px;
@@ -50,7 +88,6 @@ a {
     color: #fdd000;
     font-size: 16px;
     float: left;
-    padding-top: 5px;
 
 }
 .infostyle{
@@ -103,6 +140,7 @@ a {
     float: right;
     padding-top: 20px;
     font-size: larger;
+    padding-right: 60px;
 }
 
 .ulbody{

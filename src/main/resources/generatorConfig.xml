@@ -52,7 +52,7 @@
 		</table> -->
 
 		<!--神游所有表-->
-        <!--<table tableName="user" domainObjectName="User"-->
+        <!--<table tableName="users" domainObjectName="User"-->
                <!--enableCountByExample="false" enableDeleteByExample="false"-->
                <!--enableSelectByExample="false" enableUpdateByExample="false">-->
             <!--<property name="useActualColumnNames" value="false" />-->

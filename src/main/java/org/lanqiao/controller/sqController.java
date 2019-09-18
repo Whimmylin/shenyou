@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.Set;
 
 @RestController
 public class sqController {
@@ -22,6 +23,18 @@ public class sqController {
     public String getUserName(int userid){
         return sqService.getUserName(userid);
     }
+
+    @RequestMapping("/setHot")
+    public void setHotCity(@RequestParam(defaultValue = "深圳市")String cityName){
+        sqService.setHotCity(cityName);
+    }
+
+    @RequestMapping("/getHot")
+    public Set getHotCity(){
+        return sqService.getHotCity();
+    }
+
+
 
 
 }

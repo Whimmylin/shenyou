@@ -2,11 +2,13 @@ package org.lanqiao.service;
 
 import org.lanqiao.entity.Article;
 import org.lanqiao.mapper.UserMapper;
+import org.lanqiao.util.RedisUtil;
 import org.lanqiao.util.SolrUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Set;
 
 @Service
 public class SqServiceImpl implements sqService {
@@ -29,5 +31,18 @@ public class SqServiceImpl implements sqService {
     @Override
     public String getUserName(Integer userId) {
         return userMapper.selectUserNameByPK(userId);
+
     }
+
+    @Override
+    public void setHotCity(String cityName) {
+        new RedisUtil().setRedisCity(cityName);
+    }
+
+    @Override
+    public Set getHotCity() {
+        return new RedisUtil().getRedisCity();
+    }
+
+
 }

@@ -78,7 +78,7 @@ public class SolrUtil {
 
     public static void main(String[] args) throws Exception {
         SolrUtil solr = new SolrUtil();
-        solr.querySolr("厦门市");
+        solr.querySolr("北京市");
     }
 }
 

@@ -15,7 +15,7 @@
 
     <!--bootstrap-->
     <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!--<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
 
 </head>
 <body >
@@ -39,12 +39,21 @@
         <img src="syimages/logo.png">
     </div>
     <div id="rightlogo">
-        <div class="textstyle" id="mycity">{{cityName}}</div>
+        <div class="textstyle" id="mycity">
+            <div class="dropdown">
+                <button class="dropbtn">{{cityName}} <b class="caret"></b></button>
+                <div class="dropdown-content" >
+                    <a href="#" v-for="(list,index) in hotCityList " @click="selectCity(index)">
+                        {{list.HotCityName}}
+                    </a>
+                </div>
+            </div>
+        </div>
         <!--搜索-->
         <div id="search">
             <div class="form">
                 <input type="text" class="text" id="scity">
-                <button class="button" id="sbutton">搜 索</button>
+                <button class="button" id="sbutton" @click="changeCity">搜 索</button>
             </div>
         </div>
 
@@ -69,6 +78,7 @@
                     <li ><a class="navbar-brand" href="#">视 频</a></li>
                     <li ><a class="navbar-brand" href="#"> </a></li>
                     <li ><a class="navbar-brand" href="#">我的社区</a></li>
+                    <li ><a class="navbar-brand" href="#"> </a></li>
                 </ul>
             </div>
         </div>
@@ -110,48 +120,6 @@
 
 <div id="mybody">
     <hr>
-    <!--热门城市-->
-    <!--<div id="div2">-->
-        <!--<div id="divtop2" class="divtop">-->
-            <!--<div class="titleleft">-->
-                <!--<h2><i class="fa fa fa-unlink" style="font-size:32px"></i> <small>热门城市</small></h2>-->
-            <!--</div>-->
-            <!--<div class="titleright">-->
-                <!--<ul class="breadcrumb">-->
-                    <!--<li><a href="#">热门</a></li>-->
-                    <!--<li><a href="#">内蒙</a></li>-->
-                    <!--<li><a href="#">西北</a></li>-->
-                    <!--<li><a href="#">云南</a></li>-->
-                    <!--<li><a href="#">新疆</a></li>-->
-                    <!--<li><a href="#">西藏</a></li>-->
-                    <!--<li class="active">更多></li>-->
-                <!--</ul>-->
-            <!--</div>-->
-        <!--</div>-->
-        <!--<div class="divbottom2">-->
-            <!--<ul class="ulbody">-->
-
-                <!--<li class="box2">-->
-                    <!--<a>-->
-                        <!--<img src="syimages/youji1.jpg" width="188" height="124">-->
-                    <!--</a>-->
-                    <!--<div class="content2">-->
-                        <!--<h3 class="title2">-->
-                            <!--<a href="#" title="向左是伊甸园的阶梯，往右是时光的任意门——外高加索很神奇,但你得开着好车去" target="_blank">-->
-                                <!--向左是伊甸园的阶梯，往右是时光的任意门——外高加索很神奇,但你得开着好车去-->
-                            <!--</a>-->
-                        <!--</h3>-->
-                        <!--<div class="info2">-->
-                            <!--2019-09-08 by-->
-                            <!--<a href="#" target="_blank">莎莎AI旅行</a>-->
-                        <!--</div>-->
-                    <!--</div>-->
-                <!--</li>-->
-            <!--</ul>-->
-
-        <!--</div>-->
-    <!--</div>-->
-    <hr>
     <img src="syimages/body1.jpg" width="580">
     <img src="syimages/body2.png" width="580">
     <!--游记-->
@@ -162,17 +130,7 @@
             </div>
             <div class="titleright">
                 <ul class="breadcrumb">
-                    <li><a href="#">精华</a></li>
-                    <li><a href="#">新疆</a></li>
-                    <li><a href="#">西北</a></li>
-                    <li><a href="#">内蒙</a></li>
-                    <li><a href="#">四川</a></li>
-                    <li><a href="#">浙江</a></li>
-                    <li><a href="#">贵州</a></li>
-                    <li><a href="#">云南</a></li>
-                    <li><a href="#">上海</a></li>
-                    <li><a href="#">出境</a></li>
-                    <li class="active">更多></li>
+                    <li><a>/更多 ></a></li>
                 </ul>
             </div>
         </div>
@@ -206,17 +164,7 @@
             </div>
             <div class="titleright">
                 <ul class="breadcrumb">
-                    <li><a href="#">精华</a></li>
-                    <li><a href="#">新疆</a></li>
-                    <li><a href="#">西北</a></li>
-                    <li><a href="#">内蒙</a></li>
-                    <li><a href="#">四川</a></li>
-                    <li><a href="#">浙江</a></li>
-                    <li><a href="#">贵州</a></li>
-                    <li><a href="#">云南</a></li>
-                    <li><a href="#">上海</a></li>
-                    <li><a href="#">出境</a></li>
-                    <li class="active">更多></li>
+                    <li><a href="#">/更多 ></a></li>
                 </ul>
             </div>
         </div>
@@ -255,17 +203,7 @@
             </div>
             <div class="titleright">
                 <ul class="breadcrumb">
-                    <li><a href="#">热门</a></li>
-                    <li><a href="#">新疆</a></li>
-                    <li><a href="#">西北</a></li>
-                    <li><a href="#">内蒙</a></li>
-                    <li><a href="#">四川</a></li>
-                    <li><a href="#">浙江</a></li>
-                    <li><a href="#">贵州</a></li>
-                    <li><a href="#">云南</a></li>
-                    <li><a href="#">上海</a></li>
-                    <li><a href="#">出境</a></li>
-                    <li class="active">更多></li>
+                    <li ><a href="#">/更多 ></a></li>
                 </ul>
             </div>
         </div>
@@ -459,11 +397,39 @@
     function showLocation(data) {
 //        console.log(data.content.address_detail.city);
         var a =new Vue({
-            el:"#mycity",
+            el:"#rightlogo",
             data:{
-                cityName:data.content.address_detail.city
+                cityName:data.content.address_detail.city,
+                hotCityList:[]
+            },
+            methods: {
+                changeCity :function () {
+                    if ($("#scity").val().indexOf("市")!=-1){
+                        this.cityName=$("#scity").val();
+                    }
+                },
+                selectCity :function(index){
+                    this.cityName=this.hotCityList[index].HotCityName;
+                    vm.ArticleList=[];
+                    ajax();
+                }
             }
         });
+        //获取热门城市
+        $.ajax({
+            url:"/getHot",
+            type:"post",
+            dataType:"json",
+            success:function (data) {
+                for (var i =0;i<data.length && i<6;i++){
+                    a.hotCityList.push({
+                        HotCityName:data[i].element,
+                        Hot:data[i].score
+                    });
+                }
+            }
+        });
+        //获取文章
         var vm = new Vue({
             el: "#Articles",
             data: {
@@ -474,44 +440,48 @@
         });
         console.log(a.cityName);
         //显示定位城市的游记
-        $.ajax({
-            url: "http://localhost:8080/getNowA",
-            type: "post",
-            data:{
-                cityName :a.cityName
-            },
-            dataType: "json",
-            success: function (data) {
-                for (var i = 0; i < data.length; i++) {
-                    var UserName="";
-                    UserName=$.ajax({
-                        url:"http://localhost:8080/getUserName",
-                        type:"post",
-                        data:{
-                            userid:data[i].userId
-                        },
-                        async:false,
-                        dataType:"text",
-                        success:function (result) {
-                        }
-                    }).responseText;
-                    console.log(UserName);
-                    vm.ArticleList.push({
+        ajax();
+        function ajax() {
+            $.ajax({
+                url: "http://localhost:8080/getNowA",
+                type: "post",
+                data:{
+                    cityName :a.cityName
+                },
+                dataType: "json",
+                success: function (data) {
+                    for (var i = 0; i < data.length; i++) {
+                        var UserName="";
+                        UserName=$.ajax({
+                            url:"/getUserName",
+                            type:"post",
+                            data:{
+                                userid:data[i].userId
+                            },
+                            async:false,
+                            dataType:"text",
+                            success:function (result) {
+                            }
+                        }).responseText;
+                        console.log(UserName);
+                        vm.ArticleList.push({
 //                        articleId:data[i].articleId,
 //                        UserId:data[i].userId,
 //                        idBest:data[i].idBest,
 //                        hot:data[i].hot,
-                        ArticleTime:data[i].articleTime.substring(0,10),
+                            ArticleTime:data[i].articleTime.substring(0,10),
 //                        article_address:data[i].article_address,
 //                        article_local:data[i].article_local,
-                        ArticleImg:data[i].articleImg,
+                            ArticleImg:data[i].articleImg,
 //                        article_face:data[i].article_face,
-                        ArticleContent:data[i].articleContent,
-                        UserName:UserName
-                    });
+                            ArticleContent:data[i].articleContent,
+                            UserName:UserName
+                        });
+                    }
                 }
-            }
-        });
+            });
+        }
+
         //搜索城市显示内容
         $("#sbutton").click(function () {
             console.log($("#scity").val());
