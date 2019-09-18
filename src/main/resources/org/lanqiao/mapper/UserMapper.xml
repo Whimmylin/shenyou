@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="org.lanqiao.mapper.UserMapper" >
-  <resultMap id="BaseResultMap" type="org.lanqiao.entity.User" >
+  <resultMap id="BaseResultMap" type="org.lanqiao.entity.Users" >
     <id column="user_id" property="userId" jdbcType="INTEGER" />
     <result column="user_rickname" property="userRickname" jdbcType="VARCHAR" />
     <result column="user_passw" property="userPassw" jdbcType="VARCHAR" />
@@ -32,7 +32,7 @@
     delete from users
     where user_id = #{userId,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="org.lanqiao.entity.User" >
+  <insert id="insert" parameterType="org.lanqiao.entity.Users" >
     insert into users (user_id, user_rickname, user_passw, 
       user_phone, user_name, user_sex, 
       user_birthday, user_address, user_picaddress, 
@@ -42,7 +42,7 @@
       #{userBirthday,jdbcType=DATE}, #{userAddress,jdbcType=VARCHAR}, #{userPicaddress,jdbcType=VARCHAR}, 
       #{userSign,jdbcType=VARCHAR}, #{userImg,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="org.lanqiao.entity.User" >
+  <insert id="insertSelective" parameterType="org.lanqiao.entity.Users" >
     insert into users
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="userId != null" >
@@ -115,7 +115,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="org.lanqiao.entity.User" >
+  <update id="updateByPrimaryKeySelective" parameterType="org.lanqiao.entity.Users" >
     update users
     <set >
       <if test="userRickname != null" >
@@ -151,7 +151,7 @@
     </set>
     where user_id = #{userId,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="org.lanqiao.entity.User" >
+  <update id="updateByPrimaryKey" parameterType="org.lanqiao.entity.Users" >
     update users
     set user_rickname = #{userRickname,jdbcType=VARCHAR},
       user_passw = #{userPassw,jdbcType=VARCHAR},

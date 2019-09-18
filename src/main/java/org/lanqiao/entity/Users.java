@@ -2,7 +2,7 @@ package org.lanqiao.entity;
 
 import java.util.Date;
 
-public class User {
+public class Users {
     private Integer userId;
 
     private String userRickname;

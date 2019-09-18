@@ -1,6 +1,7 @@
 package org.lanqiao.entity;
 
 import org.apache.solr.client.solrj.beans.Field;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
 
@@ -17,6 +18,7 @@ public class Article {
     @Field(value = "hot")
     private String hot;
 
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     @Field(value = "article_time")
     private Date articleTime;
 
@@ -37,6 +39,16 @@ public class Article {
 
     @Field(value = "article_title")
     private String articleTitle;
+
+    private Users users;
+
+    public Users getUsers() {
+        return users;
+    }
+
+    public void setUsers(Users users) {
+        this.users = users;
+    }
 
     public Integer getArticleId() {
         return articleId;

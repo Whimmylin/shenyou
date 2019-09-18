@@ -1,3 +1,6 @@
 spring:
   profiles:
     active: dev
+  server:
+    tomcat:
+      max-http-post-size: -1

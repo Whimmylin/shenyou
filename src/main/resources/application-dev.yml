@@ -1,14 +1,17 @@
 spring:
   datasource:
     username: root
-    password: mypassword
-    url: jdbc:mysql://134.175.54.171:3306/shenyou?useUnicode=true&characterEncoding=utf-8
+    password: 1998
+    url: jdbc:mysql://localhost:3306/shenyou?characterEncoding=utf-8
+#    url: jdbc:mysql://134.175.54.171:3306/shenyou?useUnicode=true&characterEncoding=utf-8
     driver-class-name: com.mysql.jdbc.Driver
 
 mybatis:
   mapper-locations: classpath:org/lanqiao/mapper/*.xml
   type-aliases-package: org.lanqiao.entity
-
+server:
+  tomcat:
+    max-http-post-size: -1
 #showSql
 logging:
   level:

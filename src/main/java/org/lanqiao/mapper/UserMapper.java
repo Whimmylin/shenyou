@@ -1,21 +1,21 @@
 package org.lanqiao.mapper;
 
-import org.lanqiao.entity.User;
+import org.lanqiao.entity.Users;
 import org.springframework.stereotype.Repository;
 
 @Repository
 public interface UserMapper {
     int deleteByPrimaryKey(Integer userId);
 
-    int insert(User record);
+    int insert(Users record);
 
-    int insertSelective(User record);
+    int insertSelective(Users record);
 
-    User selectByPrimaryKey(Integer userId);
+    Users selectByPrimaryKey(Integer userId);
 
-    int updateByPrimaryKeySelective(User record);
+    int updateByPrimaryKeySelective(Users record);
 
-    int updateByPrimaryKey(User record);
+    int updateByPrimaryKey(Users record);
 
     String selectUserNameByPK(Integer userId);
 }

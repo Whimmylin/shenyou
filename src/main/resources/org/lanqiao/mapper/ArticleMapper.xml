@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="org.lanqiao.mapper.ArticleMapper" >
-  <resultMap id="BaseResultMap" type="org.lanqiao.entity.Article" >
+  <resultMap id="ArticleResultMap" type="org.lanqiao.entity.Article" >
     <id column="Article_id" property="articleId" jdbcType="INTEGER" />
     <result column="user_id" property="userId" jdbcType="INTEGER" />
     <result column="id_best" property="idBest" jdbcType="VARCHAR" />
@@ -13,21 +13,61 @@
     <result column="article_face" property="articleFace" jdbcType="VARCHAR" />
     <result column="article_content" property="articleContent" jdbcType="VARCHAR" />
     <result column="article_title" property="articleTitle" jdbcType="VARCHAR" />
+    <association property="users" resultMap="UserResultMap"></association>
   </resultMap>
-  <sql id="Base_Column_List" >
-    Article_id, user_id, id_best, hot, article_time, article_address, article_local, 
-    article_img, article_face, article_content, article_title
-  </sql>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+  <resultMap id="UserResultMap" type="org.lanqiao.entity.Users" >
+    <id column="user_id" property="userId" jdbcType="INTEGER" />
+    <result column="user_rickname" property="userRickname" jdbcType="VARCHAR" />
+    <result column="user_passw" property="userPassw" jdbcType="VARCHAR" />
+    <result column="user_phone" property="userPhone" jdbcType="VARCHAR" />
+    <result column="user_name" property="userName" jdbcType="VARCHAR" />
+    <result column="user_sex" property="userSex" jdbcType="VARCHAR" />
+    <result column="user_birthday" property="userBirthday" jdbcType="DATE" />
+    <result column="user_address" property="userAddress" jdbcType="VARCHAR" />
+    <result column="user_picaddress" property="userPicaddress" jdbcType="VARCHAR" />
+    <result column="user_sign" property="userSign" jdbcType="VARCHAR" />
+  </resultMap>
+
+  <select id="selectByPrimaryKey" resultMap="ArticleResultMap" parameterType="java.lang.Integer" >
     select 
-    <include refid="Base_Column_List" />
+    *
     from article
     where Article_id = #{articleId,jdbcType=INTEGER}
   </select>
+
+  <select id="selectByArticleId" resultMap="ArticleResultMap" parameterType="java.lang.Integer" >
+    select *
+    from article a,users u
+    where Article_id = #{articleId,jdbcType=INTEGER}
+  </select>
+
+  <select id="selectAllarticle" resultMap="ArticleResultMap" parameterType="java.lang.Integer" >
+    select *
+    from article
+    where Article_id = #{articleId,jdbcType=INTEGER}
+  </select>
+
+  <select id="getAllArticles" resultMap="ArticleResultMap" >
+     select *
+    from article a,users u
+    WHERE a.user_id = u.user_id
+  </select>
+
+  <select id="selectBestArticles" resultMap="ArticleResultMap" parameterType="String">
+      select *
+    from article a,users u
+    WHERE a.user_id = u.user_id AND a.id_best LIKE #{param1}
+  </select>
+
+
+
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from article
     where Article_id = #{articleId,jdbcType=INTEGER}
   </delete>
+
+
+
   <insert id="insert" parameterType="org.lanqiao.entity.Article" >
     insert into article (Article_id, user_id, id_best, 
       hot, article_time, article_address, 
