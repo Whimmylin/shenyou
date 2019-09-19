@@ -3,6 +3,8 @@ package org.lanqiao.mapper;
 import org.lanqiao.entity.Users;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public interface UserMapper {
     int deleteByPrimaryKey(Integer userId);
@@ -18,4 +20,7 @@ public interface UserMapper {
     int updateByPrimaryKey(Users record);
 
     String selectUserNameByPK(Integer userId);
+//    hcy
+//    取出用户信息
+List selectsi(int userId);
 }

@@ -18,3 +18,9 @@ logging:
     org:
       lanqiao:
         mapper : debug
+
+#pagehelper分页插件配置
+pagehelper:
+  helper-dialect: mysql
+  reasonable: true
+  support-methods-arguments: true

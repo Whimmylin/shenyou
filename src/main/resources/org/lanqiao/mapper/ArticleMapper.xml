@@ -28,6 +28,13 @@
     <result column="user_sign" property="userSign" jdbcType="VARCHAR" />
   </resultMap>
 
+<!--    hcy-->
+    <select id="selectAllarticle" resultMap="ArticleResultMap" parameterType="org.lanqiao.entity.Article" >
+        select a.article_face,a.article_title,a.hot,a.article_time,a.article_local,u.user_img ,u.user_sign from article a,users u where a.user_id=u.user_id=#{userId}
+    </select>
+
+
+<!--    yyp-->
   <select id="selectByPrimaryKey" resultMap="ArticleResultMap" parameterType="java.lang.Integer" >
     select 
     *
@@ -41,11 +48,6 @@
     where Article_id = #{articleId,jdbcType=INTEGER}
   </select>
 
-  <select id="selectAllarticle" resultMap="ArticleResultMap" parameterType="java.lang.Integer" >
-    select *
-    from article
-    where Article_id = #{articleId,jdbcType=INTEGER}
-  </select>
 
   <select id="getAllArticles" resultMap="ArticleResultMap" >
      select *

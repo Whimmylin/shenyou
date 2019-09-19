@@ -25,5 +25,8 @@ public interface ArticleMapper {
 
     List<Article>  selectBestArticles(String isBest);
 
+//    hcy
+ List selectAllarticle(Article record);
+
     Article selectByArticleId(Integer articleId);
 }

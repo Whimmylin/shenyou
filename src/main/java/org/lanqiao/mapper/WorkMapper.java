@@ -3,6 +3,8 @@ package org.lanqiao.mapper;
 import org.lanqiao.entity.Work;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public interface WorkMapper {
     int deleteByPrimaryKey(Integer workId);
@@ -16,4 +18,7 @@ public interface WorkMapper {
     int updateByPrimaryKeySelective(Work record);
 
     int updateByPrimaryKey(Work record);
+//    hcy
+//    取出摄影图集
+List selectAllWork(Work work);
 }
