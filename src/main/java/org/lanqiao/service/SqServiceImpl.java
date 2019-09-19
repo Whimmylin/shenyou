@@ -94,7 +94,7 @@ public PageInfo getAllPhoto(int pageNum, int pageSize, Photo photo) {
     }
     //上传社区用户背景图
     @Override
-    public int updateUser(Users users) { return userMapper.updateByPrimaryKeySelective(users);
+    public int updateUsers(Users users) { return userMapper.updateByPrimaryKeySelective(users);
     }
     //取出用户头像  以及社区的背景图
     @Override
@@ -121,4 +121,35 @@ public PageInfo getAllPhoto(int pageNum, int pageSize, Photo photo) {
         return photoMapper.deleteByPrimaryKey(pid);
     }
 //    hcy
+    //lwx
+//注册用户
+@Override
+public int addUser(Users users) {
+    return userMapper.insert(users);
+}
+    //手机号是否已注册
+    @Override
+    public int userPhoneIsExist(String userPhone) {
+        int count = userMapper.selectByUserPhone(userPhone);
+        if (count>0){
+            return 0;
+        }else {
+            return 1;
+        }
+    }
+    //根据手机号和密码获取用户
+    @Override
+    public List<Users> PhoneAndPasswExist(String userPhone, String userPassw) {
+        return userMapper.selectByPhonePassw(userPhone,userPassw);
+    }
+    //根据用户id获取用户
+    @Override
+    public Users getUser(Integer userId) {
+        return userMapper.selectByPrimaryKey(userId);
+    }
+
+    @Override
+    public int updateUser(Users users) {
+        return userMapper.updateByPrimaryKey(users);
+    }
 }

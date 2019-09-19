@@ -29,12 +29,22 @@ public PageInfo getAllWork(int pageNum, int pageSize, Work work);
 
     public PageInfo getAllPhoto(int pageNum, int pageSize, Photo photo);
 
-    public int updateUser(Users user);
+    public int updateUsers(Users user);
 
     public List getuserssi(int userId);
 
     public PageInfo insertPhot(Photo photo,int pageNum, int pageSize);
     public int deletePhotoArray(int pid);
-// hcy
+//hcy
+//lwx
+public int addUser(Users users);
+
+    public int userPhoneIsExist(String userPhone);
+
+    public List<Users> PhoneAndPasswExist(String userPhone, String userPassw);
+
+    public Users getUser(Integer userId);
+
+    public int updateUser(Users users);
 
 }
