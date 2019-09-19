@@ -34,4 +34,10 @@ public class ArticlesServiceImpl implements ArticlesService {
     public List<Article> selectBestArticles(String isBest) {
         return articleMapper.selectBestArticles(isBest);
     }
+
+    @Override
+    public int updateHot(int articleId, int hot) {
+        hot = hot+1;
+        return articleMapper.updateHot(articleId,hot);
+    }
 }

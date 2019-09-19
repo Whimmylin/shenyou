@@ -14,6 +14,8 @@ public interface ArticlesService {
 
    List<Article> selectBestArticles(String isBest);
 
+   int updateHot(int articleId,int hot);
+
 
 
 

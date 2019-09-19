@@ -26,4 +26,6 @@ public interface ArticleMapper {
     List<Article>  selectBestArticles(String isBest);
 
     Article selectByArticleId(Integer articleId);
+
+    int updateHot(Integer articleId,Integer hot);
 }

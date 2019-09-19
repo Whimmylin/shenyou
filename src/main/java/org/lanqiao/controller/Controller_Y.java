@@ -82,5 +82,11 @@ public class Controller_Y {
 
         return pageInfo;
     }
+    @RequestMapping("/hot")
+    public int updateHot(int articleId,int hot){
+
+        return articlesService.updateHot(articleId,hot);
+
+    }
 
 }
