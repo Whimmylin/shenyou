@@ -16,7 +16,7 @@ public class SaveTxt{
         FileWriter fwriter = null;
         try {
             //追加文件夹
-            File file = new File("DD:/test/test-articles/");
+            File file = new File("D:/test/test-articles/");
             if(!file.exists()){
                 file.mkdirs();
             }

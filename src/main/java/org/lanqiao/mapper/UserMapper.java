@@ -23,4 +23,8 @@ public interface UserMapper {
 //    hcy
 //    取出用户信息
 List selectsi(int userId);
+
+int selectByUserPhone(String userPhone);
+
+List<Users> selectByPhonePassw(String userPhone, String userPassw);
 }
