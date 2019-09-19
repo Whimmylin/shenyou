@@ -74,11 +74,19 @@
                      ajax();
                  },
                  goToArticle:function (index) {
-                     var indexId = this.articles[index].articleId.toString()
+                     var indexId = this.articles[index].articleId.toString();
                      sessionStorage.setItem("articleId", indexId);
-                     location.href="travel_details.html"
-
-
+                     $.ajax({
+                         url:"/hot",
+                         data: {
+                            articleId : indexId,
+                             hot:this.articles[index].hot
+                         },
+                         type:"post",
+                         success:function () {
+                             location.href="travel_details.html"
+                         }
+                     });
                  }
              }
             });

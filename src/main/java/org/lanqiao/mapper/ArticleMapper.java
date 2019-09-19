@@ -29,4 +29,6 @@ public interface ArticleMapper {
  List selectAllarticle(Article record);
 
     Article selectByArticleId(Integer articleId);
+
+    int updateHot(Integer articleId,Integer hot);
 }

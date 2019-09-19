@@ -203,4 +203,11 @@
       article_title = #{articleTitle,jdbcType=VARCHAR}
     where Article_id = #{articleId,jdbcType=INTEGER}
   </update>
+  <update id="updateHot" parameterType="java.lang.Integer" >
+    update article
+    set
+      hot = #{param2}
+    where Article_id = #{param1}
+  </update>
+
 </mapper>
