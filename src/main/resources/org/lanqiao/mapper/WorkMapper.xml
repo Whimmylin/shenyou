@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="org.lanqiao.mapper.WorkMapper" >
-  <resultMap id="BaseResultMap" type="org.lanqiao.entity.Work" >
+  <resultMap id="WorkResultMap" type="org.lanqiao.entity.Work" >
     <id column="work_id" property="workId" jdbcType="INTEGER" />
     <result column="user_id" property="userId" jdbcType="INTEGER" />
     <result column="work_title" property="workTitle" jdbcType="VARCHAR" />
@@ -13,16 +13,25 @@
     <result column="work_hot" property="workHot" jdbcType="INTEGER" />
     <result column="work_cover" property="workCover" jdbcType="VARCHAR" />
   </resultMap>
+
+<!--    hcy-->
+    <select id="selectAllWork" resultMap="WorkResultMap" parameterType="org.lanqiao.entity.Work" >
+        select * from work where user_id=#{userId}
+    </select>
+
+
   <sql id="Base_Column_List" >
     work_id, user_id, work_title, work_detaile, work_theme, copyright, work_tag, work_time, 
     work_hot, work_cover
   </sql>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+
+  <select id="selectByPrimaryKey" resultMap="WorkResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
     from work
     where work_id = #{workId,jdbcType=INTEGER}
   </select>
+
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from work
     where work_id = #{workId,jdbcType=INTEGER}

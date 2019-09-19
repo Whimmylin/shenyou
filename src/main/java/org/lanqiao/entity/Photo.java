@@ -1,5 +1,7 @@
 package org.lanqiao.entity;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.util.Date;
 
 public class Photo {
@@ -11,6 +13,7 @@ public class Photo {
 
     private String photoPower;
 
+    @DateTimeFormat(pattern ="yyyy-MM-dd")
     private Date photoTime;
 
     public Integer getPhotoId() {

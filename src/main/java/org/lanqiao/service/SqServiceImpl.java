@@ -1,7 +1,15 @@
 package org.lanqiao.service;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import org.lanqiao.entity.Article;
+import org.lanqiao.entity.Photo;
+import org.lanqiao.entity.Users;
+import org.lanqiao.entity.Work;
+import org.lanqiao.mapper.ArticleMapper;
+import org.lanqiao.mapper.PhotoMapper;
 import org.lanqiao.mapper.UserMapper;
+import org.lanqiao.mapper.WorkMapper;
 import org.lanqiao.util.RedisUtil;
 import org.lanqiao.util.SolrUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,9 +21,18 @@ import java.util.Set;
 @Service
 public class SqServiceImpl implements sqService {
 
+
+    @Autowired
+    ArticleMapper articleMapper;
+
+    @Autowired
+    WorkMapper workMapper;
+
     @Autowired
     UserMapper userMapper;
 
+    @Autowired
+    PhotoMapper photoMapper;
     @Override
     public List<Article> getNowCityArticle(String cityName){
         List<Article> articles =null;
@@ -45,4 +62,63 @@ public class SqServiceImpl implements sqService {
     }
 
 
+
+//    hcy
+//分页获取摄影作品
+@Override
+public PageInfo getAllPhoto(int pageNum, int pageSize, Photo photo) {
+    PageHelper.startPage(pageNum, pageSize); // 设定当前页码，以及当前页显示的条数
+    //PageHelper.offsetPage(pageNum, pageSize);也可以使用此方式进行设置
+    List list = photoMapper.selectAllPhoto(photo);
+    PageInfo pageInfo = new PageInfo (list);
+    return pageInfo;
+}
+
+    //分页获取摄影作品
+    @Override
+    public PageInfo getAllWork(int pageNum, int pageSize, Work work) {
+        PageHelper.startPage(pageNum, pageSize); // 设定当前页码，以及当前页显示的条数
+        //PageHelper.offsetPage(pageNum, pageSize);也可以使用此方式进行设置
+        List list = workMapper.selectAllWork(work);
+        PageInfo pageInfo = new PageInfo (list);
+        return pageInfo;
+    }
+    //    分页获取游记
+    @Override
+    public PageInfo getAllArticle(int pageNum, int pageSize, Article article) {
+        PageHelper.startPage(pageNum, pageSize); // 设定当前页码，以及当前页显示的条数
+        //PageHelper.offsetPage(pageNum, pageSize);也可以使用此方式进行设置
+        List list = articleMapper.selectAllarticle(article);
+        PageInfo pageInfo = new PageInfo (list);
+        return pageInfo;
+    }
+    //上传社区用户背景图
+    @Override
+    public int updateUser(Users users) { return userMapper.updateByPrimaryKeySelective(users);
+    }
+    //取出用户头像  以及社区的背景图
+    @Override
+    public List getuserssi(int userId) {
+        return userMapper.selectsi(userId);
+    }
+
+    //    插入相册并获取相册内容
+    @Override
+    public PageInfo insertPhot(Photo photo, int pageNum, int pageSize) {
+
+        photoMapper.insertSelective(photo);
+        PageHelper.startPage(pageNum, pageSize); // 设定当前页码，以及当前页显示的条数
+        //PageHelper.offsetPage(pageNum, pageSize);也可以使用此方式进行设置
+        List list = photoMapper.selectPhoto(photo.getUserId());
+        PageInfo pageInfo = new PageInfo (list);
+        return pageInfo;
+//        return photoMapper.selectPhoto(photo.getUserId());
+    }
+
+    @Override
+    public int deletePhotoArray(int pid) {
+
+        return photoMapper.deleteByPrimaryKey(pid);
+    }
+//    hcy
 }
