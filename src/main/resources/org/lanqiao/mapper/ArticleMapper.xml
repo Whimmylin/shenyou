@@ -71,11 +71,11 @@
 
 
   <insert id="insert" parameterType="org.lanqiao.entity.Article" >
-    insert into article (Article_id, user_id, id_best, 
+    insert into article (user_id, id_best,
       hot, article_time, article_address, 
       article_local, article_img, article_face, 
       article_content, article_title)
-    values (#{articleId,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{idBest,jdbcType=VARCHAR}, 
+    values (#{userId,jdbcType=INTEGER}, #{idBest,jdbcType=VARCHAR},
       #{hot,jdbcType=VARCHAR}, #{articleTime,jdbcType=DATE}, #{articleAddress,jdbcType=VARCHAR}, 
       #{articleLocal,jdbcType=VARCHAR}, #{articleImg,jdbcType=VARCHAR}, #{articleFace,jdbcType=VARCHAR}, 
       #{articleContent,jdbcType=VARCHAR}, #{articleTitle,jdbcType=VARCHAR})
