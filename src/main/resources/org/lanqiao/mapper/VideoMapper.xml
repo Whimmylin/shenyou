@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="org.lanqiao.mapper.VideoMapper" >
-  <resultMap id="BaseResultMap" type="org.lanqiao.entity.Video" >
+  <resultMap id="VideoResultMap" type="org.lanqiao.entity.Video" >
     <id column="video_id" property="videoId" jdbcType="INTEGER" />
     <result column="user_id" property="userId" jdbcType="INTEGER" />
     <result column="upload_time" property="uploadTime" jdbcType="DATE" />
@@ -16,11 +16,46 @@
     <result column="discuss_id" property="discussId" jdbcType="INTEGER" />
     <result column="video_detail" property="videoDetail" jdbcType="VARCHAR" />
   </resultMap>
+
+
+  <select id="getVideoItem" resultMap="VideoResultMap">
+    select * from video where video_sort = #{videoSort,jdbcType=INTEGER}
+  </select>
+
+  <select id="getAllVideo" resultMap="VideoResultMap">
+    select * from video order by upload_time desc
+  </select>
+
+  <select id="getAll" resultMap="VideoResultMap">
+    select * from video order by upload_time desc
+  </select>
+  <select id="getAllLast" resultMap="VideoResultMap">
+    select * from video order by upload_time desc
+  </select>
+  <select id="getVideo" resultMap="VideoResultMap">
+    select * from video where video_sort = #{videoSort,jdbcType=INTEGER} order by upload_time desc
+  </select>
+
+  <select id="getVideoDetail" resultMap="VideoResultMap">
+    select * from video where video_id = #{videoId,jdbcType=INTEGER} order by upload_time desc
+  </select>
+
+  <select id="getVideoSortItem" resultMap="VideoResultMap">
+    select * from video where video_sort = #{videoSort,jdbcType=INTEGER}
+  </select>
+
+  <select id="getVideoSum" resultMap="VideoResultMap" parameterType="java.lang.Integer">
+    select count(*) from video where video_sort = #{videoSort,jdbcType=INTEGER}
+  </select>
+
+
+
+
   <sql id="Base_Column_List" >
     video_id, user_id, upload_time, is_only, video_hot, video_title, video_url, video_sort, 
     destination, video_last, main_id, discuss_id, video_detail
   </sql>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+  <select id="selectByPrimaryKey" resultMap="VideoResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
     from video
