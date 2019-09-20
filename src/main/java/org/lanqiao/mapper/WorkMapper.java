@@ -21,4 +21,22 @@ public interface WorkMapper {
 //    hcy
 //    取出摄影图集
 List selectAllWork(Work work);
+
+//zgb
+
+    List<Work> selectBydefault();
+
+    List<Work> selectBydTime();
+
+    List<Work> selectByHot();
+
+    List<Work> selectHisWork(int userId);
+
+    Work selectThisWork(int workId);
+
+    List<Work> selectByTag(String tag);
+
+    int selectWorkId(Work work);
+
+    int deleteWorkInfo(int workId);
 }

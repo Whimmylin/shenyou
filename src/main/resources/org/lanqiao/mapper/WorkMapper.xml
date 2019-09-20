@@ -12,12 +12,50 @@
     <result column="work_time" property="workTime" jdbcType="DATE" />
     <result column="work_hot" property="workHot" jdbcType="INTEGER" />
     <result column="work_cover" property="workCover" jdbcType="VARCHAR" />
+    <association property="users" javaType="org.lanqiao.entity.Users">
+      <id column="user_id" property="userId" jdbcType="INTEGER" />
+      <result column="user_rickname" property="userRickname" jdbcType="VARCHAR" />
+      <result column="user_passw" property="userPassw" jdbcType="VARCHAR" />
+      <result column="user_phone" property="userPhone" jdbcType="VARCHAR" />
+      <result column="user_name" property="userName" jdbcType="VARCHAR" />
+      <result column="user_sex" property="userSex" jdbcType="VARCHAR" />
+      <result column="user_birthday" property="userBirthday" jdbcType="DATE" />
+      <result column="user_address" property="userAddress" jdbcType="VARCHAR" />
+      <result column="user_picaddress" property="userPicaddress" jdbcType="VARCHAR" />
+      <result column="user_sign" property="userSign" jdbcType="VARCHAR" />
+    </association>
   </resultMap>
 
 <!--    hcy-->
     <select id="selectAllWork" resultMap="WorkResultMap" parameterType="org.lanqiao.entity.Work" >
         select * from work where user_id=#{userId}
     </select>
+  <!--    zgb-->
+  <delete id="deleteWorkInfo" parameterType="java.lang.Integer">
+    delete from workinfo where work_id =#{workId}
+  </delete>
+  <select id="selectWorkId" resultType="int" parameterType="org.lanqiao.entity.Work">
+    select work_id from work where work.user_id=#{userId} and work_title=#{workTitle} and work_theme =#{workTheme}
+  </select>
+  <select id="selectByTag" resultMap="WorkResultMap" parameterType="java.lang.String">
+    select * from work where work_theme = #{workTheme}
+  </select>
+  <select id="selectThisWork" resultMap="WorkResultMap" parameterType="java.lang.Integer">
+    select * from work w,users u where w.user_id = u.user_id and work_id = #{workId};
+  </select>
+  <select id="selectBydefault" resultMap="WorkResultMap">
+    select * from work order by work_id;
+  </select>
+  <select id="selectBydTime" resultMap="WorkResultMap">
+    select * from work order by work_time desc;
+  </select>
+  <select id="selectByHot" resultMap="WorkResultMap">
+    select * from work order by work_hot desc;
+  </select>
+  <select id="selectHisWork" resultMap="WorkResultMap" parameterType="java.lang.Integer">
+    select * from work as w,users as u where w.user_id = u.user_id and w.user_id = #{userId} limit 3;
+  </select>
+
 
 
   <sql id="Base_Column_List" >

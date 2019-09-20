@@ -23,6 +23,16 @@ public class Work {
 
     private String workCover;
 
+    private Users users;
+
+    public Users getUsers() {
+        return users;
+    }
+
+    public void setUsers(Users users) {
+        this.users = users;
+    }
+
     public Integer getWorkId() {
         return workId;
     }
