@@ -47,7 +47,7 @@
                         vm.photos=[];
                         vm.NavigatepageNums=[];
                         $.ajax({
-                            url: "http://localhost:8080/getphoto",
+                            url: "/getphoto",
                             type: "post",
                             data: {
                                 "userId": 1,
@@ -122,7 +122,7 @@
             })
         vm.Photo();
         $.ajax({
-            url: "http://localhost:8080/getusersi",
+            url: "/getusersi",
             type: "post",
             data:{
                 "userId":1,

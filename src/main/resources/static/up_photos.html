@@ -15,7 +15,7 @@
                 $(".write_btu1").show();
                 $(".write_btu2").show();
                 $.ajax({
-                    url:"http://localhost:8080/selectByPrimaryKey",
+                    url:"/selectByPrimaryKey",
                     data:{
                         "workId":window.sessionStorage.getItem("CreaateId"),
                     },
@@ -59,7 +59,7 @@
                 }
                 listTag+=$(".select_text").val();
                 $.ajax({
-                    url:"http://localhost:8080/updateTheWork",
+                    url:"/updateTheWork",
                     data:{
                         "workId":window.sessionStorage.getItem("CreaateId"),
                         "userId":1,
@@ -79,13 +79,13 @@
                     }
                 });
 
-                window.location.href="http://localhost:8080/up_work_picture.html";
+                window.location.href="/up_work_picture.html";
             });
 
             $(".write_btu2").click(function () {
                 if(confirm("是否删除？")){
                     $.ajax({
-                        url:"http://localhost:8080/deletWorkAndInfo",
+                        url:"/deletWorkAndInfo",
                         data:{
                             "workId":window.sessionStorage.getItem("CreaateId"),
                         },
@@ -146,7 +146,7 @@
                 if( $("input[name='workTitle']").val()!="" && $(".sort_change").text()!="" && listTag!=""){
 
                     $.ajax({
-                        url:"http://localhost:8080/insertWork",
+                        url:"/insertWork",
                         type:"post",
                         dateType:"json",
                         data:{
@@ -161,7 +161,7 @@
                         },
                         success:function (data) {
                             window.sessionStorage.setItem("CreaateId",data);
-                            window.location.href="http://localhost:8080/up_work_picture.html";
+                            window.location.href="/up_work_picture.html";
                         }
                     });
                 }else{
@@ -170,7 +170,7 @@
                 }
 
                 // $.ajax({
-                //     url:"http://localhost:8080/selectWorkId",
+                //     url:"/selectWorkId",
                 //     type:"post",
                 //     dateType:"json",
                 //     async:true,
@@ -180,7 +180,7 @@
                 //     },
                 //     success:function (data) {
                 //         window.sessionStorage.setItem("CreaateId",data);
-                //         window.location.href="http://localhost:8080/up_work_picture.html";
+                //         window.location.href="/up_work_picture.html";
                 //     }
                 // })
             });

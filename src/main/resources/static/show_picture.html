@@ -11,10 +11,10 @@
         $(function () {
             var lastname = sessionStorage.getItem("workId");
             var lastname1 = sessionStorage.getItem("userId");
-            // if(window.location.href!="http://localhost:8080/show_picture.html"||)
+            // if(window.location.href!="/show_picture.html"||)
             // sessionStorage.removeItem("workId");
             $.ajax({
-                url:"http://localhost:8080/selectWorkContent",
+                url:"/selectWorkContent",
                 data:{
                    "workId":lastname,
                 },
@@ -101,7 +101,7 @@
             });
 
             $.ajax({
-                url:"http://localhost:8080/selectHisWork",
+                url:"/selectHisWork",
                 data:{
                     "userId":lastname1,
                 },
@@ -120,7 +120,7 @@
                 }
             });
             $.ajax({
-                url:"http://localhost:8080/selectThisWork",
+                url:"/selectThisWork",
                 data:{
                     "workId":lastname,
                 },

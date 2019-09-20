@@ -14,7 +14,7 @@
     $(function () {
 
         $.ajax({
-            url:"http://localhost:8080/selectBydefault",
+            url:"/selectBydefault",
             type:"post",
             dataType:"json",
             success:function (data){
@@ -48,7 +48,7 @@
                     $("#comment").addClass("active");
                     vm.imgCover=[];
                     $.ajax({
-                        url:"http://localhost:8080/selectBydefault",
+                        url:"/selectBydefault",
                         type:"post",
                         dataType:"json",
                         success:function (data){
@@ -70,7 +70,7 @@
                     $("#newTime").addClass("active");
                     vm.imgCover=[];
                     $.ajax({
-                        url:"http://localhost:8080/selectBydTime",
+                        url:"/selectBydTime",
                         type:"post",
                         dataType:"json",
                         success:function (data){
@@ -92,7 +92,7 @@
                     $("#hot").addClass("active");
                     vm.imgCover=[];
                     $.ajax({
-                        url:"http://localhost:8080/selectByHot",
+                        url:"/selectByHot",
                         type:"post",
                         dataType:"json",
                         success:function (data){
@@ -112,14 +112,14 @@
                 jumpToContent:function (cover) {
                    window.sessionStorage.setItem("workId",cover.id);
                    window.sessionStorage.setItem("userId",cover.userId);
-                   window.location.href="http://localhost:8080/show_picture.html";
+                   window.location.href="/show_picture.html";
                 },
             }
         });
         $(".subRight li").click(function () {
             vm.imgCover=[];
             $.ajax({
-                url:"http://localhost:8080/selectByTag",
+                url:"/selectByTag",
                 data:{
                     "tag":$(this).children().text()
                 },
@@ -147,7 +147,7 @@
         $(".subLeft li").click(function () {
             vm.imgCover=[];
             $.ajax({
-                url:"http://localhost:8080/selectByTag",
+                url:"/selectByTag",
                 data:{
                     "tag":$(this).children().text()
                 },

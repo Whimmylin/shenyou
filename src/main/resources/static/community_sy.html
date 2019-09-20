@@ -27,7 +27,7 @@
                     vm.article=[];
                     vm.NavigatepageNums=[];
                     $.ajax({
-                        url: "http://localhost:8080/getW",
+                        url: "/getW",
                         type: "post",
                         data:{
                             "userId":1,
@@ -79,7 +79,7 @@
         })
         vm.FY();
         $.ajax({
-            url: "http://localhost:8080/getusersi",
+            url: "/getusersi",
             type: "post",
             data:{
                 "userId":1,

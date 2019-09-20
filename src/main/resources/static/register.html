@@ -97,7 +97,7 @@
             $("#activation").click(function (){
                 var userPhone= $("input[name='logonId']").val();
                 $.ajax({
-                   url:"http://localhost:8080/sendSms",
+                   url:"/sendSms",
                     async : true,
                     type: "post",
                     dataType: "json",

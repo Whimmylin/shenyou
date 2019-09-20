@@ -13,7 +13,7 @@
 
             if(thisWorkId!=null){
                 $.ajax({
-                    url:"http://localhost:8080//selectByworkId",
+                    url:"//selectByworkId",
                     data:{
                         "workId":thisWorkId,
                     },
@@ -108,7 +108,7 @@
                 }
                 if(flag){
                     $.ajax({
-                        url:"http://localhost:8080/deteletInfo",
+                        url:"/deteletInfo",
                         dataType:"json",
                         type:"post",
                         async:true,
@@ -119,7 +119,7 @@
                     });
                     for (var i = 0;i<$(".up_img_show").length;i++){
                         $.ajax({
-                            url:"http://localhost:8080/changeUrl",
+                            url:"/changeUrl",
                             dataType:"json",
                             type:"post",
                             async:true,
@@ -141,7 +141,7 @@
             });
 
             $(".up_btu").click(function () {
-                window.location.href="http://localhost:8080/up_photos.html";
+                window.location.href="/up_photos.html";
             })
         })
     </script>
