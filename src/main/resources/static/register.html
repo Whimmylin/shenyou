@@ -10,6 +10,7 @@
     <script src="js/jquery.validate.regex.js" type="application/javascript"></script>
 <!--    <script src="js/jquery.min.js" type="application/javascript"></script>-->
     <script type="text/javascript" src="js/jquery.slider.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.js"></script>
 
     <script>
 // 1、构造手机验证码，生成一个6位的随机数字串；
@@ -19,6 +20,7 @@
 // 5、对比提交的验证码与Session中的验证码是否一致，同时判断提交动作是否在有效期内；
 // 6、验证码正确且在有效期内，请求通过，处理相应的业务。
         $(function () {
+
             // 滑动按钮, 验证通过才能提交表单
             $("#slider1").slider({
                 callback: function (result) {

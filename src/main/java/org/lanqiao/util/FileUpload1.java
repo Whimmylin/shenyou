@@ -16,7 +16,7 @@ public class FileUpload1 {
         //图片在服务器下的路径
         String saveFilePath = "images/uploadFile";
         //寻找或者建立路径
-        File fileDir = new File("/root/images/");
+        File fileDir = new File("file:///root/images/");
         if (!fileDir.exists()) {
             fileDir.mkdirs();
         }
@@ -39,7 +39,7 @@ public class FileUpload1 {
                 e.printStackTrace();
             }
         }
-        return "/root/images/" + fileName;
+        return "file:///root/images/" + fileName;
     }
 }
 

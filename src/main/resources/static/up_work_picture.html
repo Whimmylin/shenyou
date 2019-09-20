@@ -7,8 +7,10 @@
     <link rel="stylesheet" href="css_g/b_floor.css">
     <script src="js/jquery.min.js"></script>
     <script src="js/vue.min2.js"></script>
+    <script src="https://cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.js"></script>
     <script>
         $(function () {
+            var userId =  $.cookie('userId');
             var thisWorkId = window.sessionStorage.getItem("CreaateId");
 
             if(thisWorkId!=null){
@@ -154,10 +156,10 @@
         </div>
         <ul class="fiter top_sort">
             <li>
-                <a href="">首页</a>
+                <a href="sy-index.html">首页</a>
             </li>
             <li>
-                <a href="">旅游网</a>
+                <a href="sy-index.html">旅游网</a>
             </li>
             <li>
                 <a href="">摄影作品</a>
@@ -198,7 +200,10 @@
         </div>
     </form>
     <div id="keep">保存修改</div>
-    <div id="browse">去浏览作品</div>
+    <a HREF="community_sy.html">
+        <div id="browse">去浏览作品</div>
+    </a>
+
 </div>
 <div class="tip_text">
 

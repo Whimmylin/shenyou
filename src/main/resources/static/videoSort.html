@@ -10,9 +10,11 @@
     <link rel="stylesheet" href="css_w/videoSort.css">
     <link rel="stylesheet" href="css_w/public.css">
     <link rel="stylesheet" href="css_w/video.css">
+    <script src="https://cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.js"></script>
     <link rel="stylesheet" href="css_w/bootstrap.css">
     <script>
         $(function () {
+            var userId =  $.cookie('userId');
             var vm = new Vue({
                 el:"#main",
                 data:{
@@ -322,14 +324,14 @@
 <!--头部导航栏-->
 <div class="public_head">
     <ul>
-        <li class="logo"><a href="http://www.youxiake.com" target="_blank" style="background-image: url(images_W/logo_01.png);"></a></li>
-        <li><a>首页</a></li>
-        <li><a>社区</a></li>
-        <li><a>目的地</a></li>
-        <li><a>攻略</a></li>
+        <li class="logo"><a href="#" target="_blank" style="background-image: url(images_W/logo_01.png);"></a></li>
+        <li><a href="sy-index.html">首页</a></li>
+        <li><a href="community_my.html">社区</a></li>
+        <li><a href="#">目的地</a></li>
+        <li><a href="travel_articles.html">攻略</a></li>
         <li><a href="video.html" style="color: orange;">视频</a></li>
         <li><a  target="_blank">领队</a></li>
-        <li><a target="_blank">摄影</a></li>
+        <li><a target="_blank" href="photo.html">摄影</a></li>
         <li class="mugua_box">
             <a class="mugua_a" href="javascript:;">旅游</a>
             <div class="mugua_ul">
@@ -342,9 +344,9 @@
                 <a target="_blank" class="mugua_li">定制游</a>
             </div>
         </li>
-        <li><a href="http://www.youxiake.com/app/" target="_blank">APP</a></li>
-        <li style="float: right;"><a href="http://www.youxiake.com/reg?refer=http://www.youxiake.com/film/" target="_blank">注册</a></li>
-        <li style="float: right;"><a href="http://www.youxiake.com/login?refer=http://www.youxiake.com/film/" target="_blank">登录</a></li>
+        <li><a href="#" target="_blank">APP</a></li>
+        <li style="float: right;"><a href="register.html" target="_blank">注册</a></li>
+        <li style="float: right;"><a href="login.html" target="_blank">登录</a></li>
     </ul>
 </div>
 <div id="main">

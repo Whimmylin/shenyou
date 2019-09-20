@@ -35,15 +35,15 @@ public class Base64 {
        try {
            int length = imageByte.length;
            //追加文件夹
-           File file = new File("/root/images/");
+           File file = new File("file:///root/images/");
            if(!file.exists()){
                file.mkdirs();
            }
-           path = "/root/images/"+UUID.randomUUID()+ "." + type;
+           path = "file:///root/images/"+UUID.randomUUID()+ "." + type;
            FileOutputStream fos = new FileOutputStream(path);//isAppend如果为true，为追加写入，否则为覆盖写入
            fos.write(imageByte,0,length);
            fos.close();
-           path = path.replaceAll("/root/","/upload/");
+           path = path.replaceAll("file:///root/","/upload/");
        }catch (Exception e){
            e.printStackTrace();
        }

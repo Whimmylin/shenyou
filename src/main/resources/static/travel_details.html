@@ -10,8 +10,10 @@
     <link rel="stylesheet" href="sycss/traveldetails.css">
     <script src="js/vue.min.js"></script>
     <script src="js/jquery-3.4.1.js"></script>
+    <script src="https://cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.js"></script>
     <script>
         $(function () {
+            var userId =  $.cookie('userId');
             var head_pic = null;
             $("#top").mouseenter(function () {
                 $("#top").parent().next().show();

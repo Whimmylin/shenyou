@@ -8,12 +8,14 @@
     <link rel="stylesheet" href="css1/B_floor.css">
     <link rel="stylesheet" href="css1/Tool_bar.css">
     <link rel="stylesheet" href="css1/Travel_article.css">
+    <script src="https://cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.js"></script>
     <script src="js/jquery-3.4.1.min1.js"></script>
     <script src="js/vue.min1.js"></script>
 
     <script>
 
         $(function () {
+            var userId =  $.cookie('userId');
             var vm = new Vue({
                 el: "#app",
                 data: {
@@ -37,7 +39,7 @@
                             url: "/getA",
                             type: "post",
                             data: {
-                                "userId":1,
+                                "userId":userId,
                                 "pageNum": vm.pagenum,
                                 "pageSize": vm.pagesize,
                             },
@@ -82,7 +84,7 @@
                             url: "/getP",
                             type: "post",
                             data:{
-                                "userId":1,
+                                "userId":userId,
                                 "pageNum":vm.pagenum,
                                 "pageSize":vm.pagesize,
                             },
@@ -107,7 +109,7 @@
                 url: "/getusersi",
                 type: "post",
                 data:{
-                    "userId":1,
+                    "userId":userId,
 
                 },
                 datatype: "json",

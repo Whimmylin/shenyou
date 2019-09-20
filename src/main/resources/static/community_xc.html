@@ -11,9 +11,11 @@
     <link rel="stylesheet" href="css1/Travel_article.css">
     <script src="js/vue.min1.js"></script>
     <script src="js/jquery-3.4.1.min1.js"></script>
+    <script src="https://cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.js"></script>
     <script src="js/bootstrap.js"></script>
 <script>
     $(function () {
+        var userId =  $.cookie('userId');
         //获取时间
         var date = new Date();
         var seperator1 = "-";
@@ -50,7 +52,7 @@
                             url: "/getphoto",
                             type: "post",
                             data: {
-                                "userId": 1,
+                                "userId": userId,
                                 "photoName": $("input[name='pname']").val(),
                                 "photoTime": currentdate,
                                 "photoPower": $("#power").val(),
@@ -125,7 +127,7 @@
             url: "/getusersi",
             type: "post",
             data:{
-                "userId":1,
+                "userId":userId,
 
             },
             datatype: "json",

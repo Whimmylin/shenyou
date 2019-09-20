@@ -11,6 +11,7 @@
     <script src="js/jquery.validate.regex.js"></script>
     <script src="js/vue.min1.js"></script>
     <link rel="stylesheet" href="css_w/videoSort.css">
+    <script src="https://cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.js"></script>
     <link rel="stylesheet" href="css_w/public.css">
     <link rel="stylesheet" href="css_w/videoOpen.css">
     <link rel="stylesheet" href="css_w/test.css">
@@ -18,6 +19,7 @@
     <script>
         $(function () {
 
+            var userId =  $.cookie('userId');
             var videoID2=sessionStorage.getItem("videoId1");
             // sessionStorage.removeItem("videoId1");
 
@@ -53,7 +55,7 @@
 <!--头部导航栏-->
 <div class="public_head">
     <ul>
-        <li class="logo"><a href="http://www.youxiake.com" target="_blank" style="background-image: url(images_W/logo_01.png);"></a></li>
+        <li class="logo"><a href="#" target="_blank" style="background-image: url(images_W/logo_01.png);"></a></li>
         <li><a>首页</a></li>
         <li><a>社区</a></li>
         <li><a>目的地</a></li>
@@ -73,9 +75,9 @@
                 <a target="_blank" class="mugua_li">定制游</a>
             </div>
         </li>
-        <li><a href="http://www.youxiake.com/app/" target="_blank">APP</a></li>
-        <li style="float: right;"><a href="http://www.youxiake.com/reg?refer=http://www.youxiake.com/film/" target="_blank">注册</a></li>
-        <li style="float: right;"><a href="http://www.youxiake.com/login?refer=http://www.youxiake.com/film/" target="_blank">登录</a></li>
+        <li><a href="#" target="_blank">APP</a></li>
+        <li style="float: right;"><a href="register.html" target="_blank">注册</a></li>
+        <li style="float: right;"><a href="login.html" target="_blank">登录</a></li>
     </ul>
 </div>
 <!--主体部分-->

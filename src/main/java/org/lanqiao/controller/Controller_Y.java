@@ -36,7 +36,7 @@ public class Controller_Y {
     @RequestMapping("deletePic")
     public void delete(String url){
         url= url.substring(url.lastIndexOf("/"));
-        url = "D:/test/test-images/" + url;
+        url = "file///root/" + url;
         File file = new File(url);
         if (file.exists()){
             file.delete();

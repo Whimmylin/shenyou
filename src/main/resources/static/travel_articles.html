@@ -11,8 +11,10 @@
     <script src="js/bootstrap.js"></script>
     <script src="js/vue.min.js"></script>
     <link rel="stylesheet" href="sycss/bootstrap.css">
+    <script src="https://cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.js"></script>
     <script>
         $(function () {
+            var userId =  $.cookie('userId');
             $("#top").mouseenter(function () {
                 $("#top").parent().next().show();
             });
@@ -662,7 +664,7 @@
                 data: {
                     articles:article,
                     head:head_pic,
-                    userId:1,
+                    userId:userId,
                     idBest:"false",
                     hot:1,
                     articleTime:currentdate,

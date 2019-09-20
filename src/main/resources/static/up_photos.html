@@ -8,8 +8,10 @@
     <link rel="stylesheet" href="css_g/b_floor.css">
     <script src="js/jquery-3.4.1.js"></script>
     <script src="js/vue.min2.js"></script>
+    <script src="https://cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.js"></script>
     <script>
         $(function () {
+            var userId =  $.cookie('userId');
             if(window.sessionStorage.getItem("CreaateId")!=null){
                 $(".write_btu").hide();
                 $(".write_btu1").show();
@@ -62,7 +64,7 @@
                     url:"/updateTheWork",
                     data:{
                         "workId":window.sessionStorage.getItem("CreaateId"),
-                        "userId":1,
+                        "userId":userId,
                         "workTitle":$("input[name='workTitle']").val(),
                         "workDetaile":$("textarea[name='workDetaile']").val(),
                         "workTheme":$(".sort_change").text(),
@@ -150,7 +152,7 @@
                         type:"post",
                         dateType:"json",
                         data:{
-                            "userId":1,
+                            "userId":userId,
                             "workTitle":$("input[name='workTitle']").val(),
                             "workDetaile":$("textarea[name='workDetaile']").val(),
                             "workTheme":$(".sort_change").text(),
