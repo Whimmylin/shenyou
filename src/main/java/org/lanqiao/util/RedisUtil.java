@@ -8,13 +8,13 @@ import java.util.Set;
 
 public class RedisUtil {
     public void setRedisCity(String cityName){
-        Jedis jedis = new Jedis("localhost");
+        Jedis jedis = new Jedis("134.175.54.171");
         System.out.println("连接成功");
         //加1
         jedis.zincrby("score",1,cityName);
     }
     public Set getRedisCity(){
-        Jedis jedis = new Jedis("localhost");
+        Jedis jedis = new Jedis("134.175.54.171");
         System.out.println("连接成功");
 
         //创建一个有序集合，用来存城市的访问排名。
@@ -33,7 +33,7 @@ public class RedisUtil {
 
     public static void main(String[] args) {
         //连接本地的 Redis 服务
-        Jedis jedis = new Jedis("localhost");
+        Jedis jedis = new Jedis("134.175.54.171");
         System.out.println("连接成功");
         //查看服务是否运行
         System.out.println("服务正在运行: "+jedis.ping());

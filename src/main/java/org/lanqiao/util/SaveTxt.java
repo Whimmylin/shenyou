@@ -9,21 +9,21 @@ import java.util.UUID;
 @Service
 public class SaveTxt{
 
-    private static String filePath = "D:/test/test-articles/"+ UUID.randomUUID()+".txt";
+    private static String filePath = "/root/articles/"+ UUID.randomUUID()+".txt";
 
 //    字符串存文本
     public String saveAsFileWriter(String content) {
         FileWriter fwriter = null;
         try {
             //追加文件夹
-            File file = new File("D:/test/test-articles/");
+            File file = new File("/root/articles/");
             if(!file.exists()){
                 file.mkdirs();
             }
             // true表示不覆盖原来的内容，而是加到文件的后面。若要覆盖原来的内容，直接省略这个参数就好
             fwriter = new FileWriter(filePath, true);
             fwriter.write(content);
-            filePath = filePath.replaceAll("D:/test/","/upload/");
+            filePath = filePath.replaceAll("/root/","/upload/");
         } catch (IOException ex) {
             ex.printStackTrace();
         } finally {
@@ -34,7 +34,7 @@ public class SaveTxt{
                 ex.printStackTrace();
             }
         }
-        filePath = filePath.replaceAll("D:/test/","/upload/");
+        filePath = filePath.replaceAll("/root/","/upload/");
         return filePath;
     }
 //    文本转字符串
@@ -43,7 +43,7 @@ public class SaveTxt{
         try { // 防止文件建立或读取失败，用catch捕捉错误并打印，也可以throw
 
             /* 读入TXT文件 */
-            path = path.replaceAll("/upload/","D:/test/");
+            path = path.replaceAll("/upload/","/root/");
             String pathname = path; // 绝对路径或相对路径都可以，这里是绝对路径，写入文件时演示相对路径
             File filename = new File(pathname); // 要读取以上路径的input。txt文件
             InputStreamReader reader = new InputStreamReader(

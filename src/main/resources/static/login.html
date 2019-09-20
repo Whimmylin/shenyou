@@ -6,13 +6,12 @@
 
     <link  rel="stylesheet" href="css/register.css">
     <link  rel="stylesheet" href="css/login.css">
-    <link rel="stylesheet" href="css/jquery.slider.css"/>
-    <link  rel="stylesheet" href="easyuii/themes/default/easyui.css">
-    <link  rel="stylesheet" href="easyuii/themes/icon.css">
-    <script type="text/javascript" src="easyuii/jquery.min.js"></script>
-    <script type="text/javascript" src="easyuii/jquery.easyui.min.js"></script>
-    <script type="text/javascript" src="easyuii/locale/easyui-lang-zh_CN.js"></script>
-<!--    <script src="js/jquery-3.4.1.js"></script>-->
+<!--    <link  rel="stylesheet" href="easyuii/themes/default/easyui.css">-->
+<!--    <link  rel="stylesheet" href="easyuii/themes/icon.css">-->
+<!--    <script type="text/javascript" src="easyuii/jquery.min.js"></script>-->
+<!--    <script type="text/javascript" src="easyuii/jquery.easyui.min.js"></script>-->
+<!--    <script type="text/javascript" src="easyuii/locale/easyui-lang-zh_CN.js"></script>-->
+    <script src="js/jquery-3.4.1.js"></script>
     <script src="js/jquery.validate.js" type="application/javascript"></script>
     <script src="js/jquery.validate.regex.js" type="application/javascript"></script>
     <script src="https://cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.js"></script>
@@ -28,11 +27,12 @@
               // alert("已经登录");
             }
 
-            $("#login").validate({
+            $("#loginForm").validate({
                 rules: {
                     logonId: {
                         required: true,
-                        regex: /^1[0-9]{10}$/,
+                        regex: /^1[0-9]{10}$/
+                        ,
                         remote: {
                             type:"post",
                             url:"/check",
@@ -52,7 +52,8 @@
                     },
                     password_input:{
                         required:true,
-                        regex: /^(?![0-9]+$){6,20}$/
+                        regex:/^\w{6,20}$/
+                         // /^(?![0-9]+$){6,20}$/
                         // 不能为纯数字，不能为纯小写字母，不能为纯大写字母，不能为纯特殊符号，至少八位。
                     }
                 },
@@ -62,13 +63,16 @@
                         regex:"请输入正确的手机号码格式"
                     },
                     password_input:{
-                        required:"请输入密码"
+                        required:"请输入密码",
+                        regex:"请输入正确的密码格式"
                     }
                 }
             });
 
             $("#btn-submit").click(function () {
+                if($('#loginForm').valid()==true){
                 $.ajax({
+                    async : false,
                     url:"/login",
                     type:"post",
                     data:{
@@ -79,9 +83,10 @@
                     success:function (data){
                         $.cookie('userId');
                         window.location.href=data;
-                        // return false;
+                         return false;
                     }
                 })
+                }
             });
 
         })
@@ -99,25 +104,25 @@
     <div class="major" role="banner">
         <div class="login-box">
             <div class="ui-login-aside">
-                <form name="loginForm" id="login" method="post"
-                      class="ui-form"  autocomplete="off" spellcheck="false">
+                <form name="loginForm" id="loginForm"
+                      class="ui-form"  autocomplete="off" >
                     <div class="ui-form-title">
                         <div class="login-tab account active">神游客账号登录</div>
                         <div class="login-tab message"><a href="#">短信快捷登录</a></div>
                     </div>
                     <div class="login-form-cnt login-account">
-                        <input onkeydown="if(event.keyCode==32) return false"
-                               type="hidden" name="loginType" value="1">
+                        <input type="hidden" name="loginType" value="1">
                         <div class="ui-form-item">
-                            <input onkeydown="if(event.keyCode==32) return false" class="ui-input" id="logonId" name="logonId" value="" type="text" autocomplete="off" maxlength="100" placeholder="&nbsp;&nbsp;手机号码" tabindex="1">
+                            <input  class="ui-input" id="logonId" name="logonId" value="" type="text" autocomplete="off" maxlength="100" placeholder="&nbsp;&nbsp;手机号码" tabindex="1">
                         </div>
                         <div class="ui-form-item">
-                            <input onkeydown="if(event.keyCode==32) return false" type="password" id="password_input" name="password_input" class="i-text ui-input" oncontextmenu="return false" onpaste="return false" oncopy="return false" oncut="return false"
+                            <input  type="password" id="password_input" name="password_input" class="i-text ui-input"
                                    autocomplete="off" tabindex="2" placeholder="&nbsp;&nbsp;密码">
                         </div>
                         <div class="error-box ui-form-hide" id="error-box"></div>
                         <div class="ui-form-item ui-btn-cnt">
-                            <input onkeydown="if(event.keyCode==32) return false" id="btn-submit" type="submit" class="btn-login" value="登录">
+<!--                            <input  id="btn-submit" type="submit" class="btn-login" value="登录">-->
+                            <a  id="btn-submit"  class="btn-login" href="javascript:void(0)">&nbsp;&nbsp;&nbsp;&nbsp;登录</a>
                         </div>
                         <div class="ui-form-item">
                             <span class="fl">还没有账号？

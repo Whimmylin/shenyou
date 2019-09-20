@@ -26,12 +26,12 @@
     select * from users where user_phone=#{userPhone,jdbcType=VARCHAR} and user_passw=#{userPassw,jdbcType=VARCHAR}
 </select>
 
-    <!--注册用户-->
-    <insert id="insert"  parameterType="org.lanqiao.entity.Users">
+  <!--注册用户-->
+  <insert id="insert"  parameterType="org.lanqiao.entity.Users">
        insert into users (user_passw,
-      user_phone)
+      user_phone,user_rickname)
     values (#{userPassw,jdbcType=VARCHAR},
-      #{userPhone,jdbcType=VARCHAR})
+      #{userPhone,jdbcType=VARCHAR}, #{userPhone,jdbcType=VARCHAR})
   </insert>
     <!--检查手机-->
     <select id="selectByUserPhone" resultType="java.lang.Integer" parameterType="java.lang.String">

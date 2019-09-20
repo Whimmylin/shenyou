@@ -16,7 +16,7 @@ import java.util.List;
  */
 public class SolrUtil {
     //指定solr服务器的地址
-    private final static  String SOLR_URL= "http://localhost:8983/solr/";
+    private final static  String SOLR_URL= "http://134.175.54.171:8983/solr/";
 
     //    创建SolrServer对象
     public HttpSolrClient createSolrServer(){

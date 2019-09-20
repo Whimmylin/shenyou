@@ -58,7 +58,7 @@
                     },
                     password:{
                         required:true,
-                        regex: /^(?![0-9]+$)(?![a-z]+$)(?![A-Z]+$)(?!([^(0-9a-zA-Z)])+$).{6,20}$/
+                        regex: /^\w{6,20}$/
                         // 不能为纯数字，不能为纯小写字母，不能为纯大写字母，不能为纯特殊符号，至少八位。
                     }
                 },
@@ -69,7 +69,7 @@
                     },
                     password:{
                         required:"请输入密码",
-                        regex:"密码至少八位，且包含大小写字母，数字其中两种"
+                        regex:"密码至六位"
                     }
                 },
                 submitHandler:function (form) {

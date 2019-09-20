@@ -86,11 +86,12 @@ html, body, fieldset, img, iframe, abbr {
      margin: 10px 0;
     zoom: 1;
 }
-input.btn-login {
+a.btn-login {
     float: left;
     cursor: pointer;
     display: inline-block;
-    text-indent: center;
+    text-align: center;
+    /*text-indent: center;*/
     height: 35px;
     line-height: 35px;
     width: 300px;
